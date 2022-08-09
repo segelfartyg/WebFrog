@@ -5,7 +5,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 function App() {
   const searchBarValue = useRef();
-
+  const [frogTime, setFrogtime] = useState("00:00")
   const [frogstyle, setFrogStyle] = useState({animation: "none 1s forwards",
   });
   useEffect(() => {
@@ -114,6 +114,32 @@ function App() {
 
   }
 
+
+  setInterval(() => {
+    // axios.get('http://localhost:3000/time').then(resp => {
+
+    // console.log(clock)
+    //    clock.innerHTML = resp.data;
+    // });
+    
+
+    let date = new Date();
+
+    let hour = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+  
+    if(minutes.toString().length < 2){
+      minutes = "0" + minutes
+    }
+    if(seconds.toString().length < 2){
+      seconds = "0" + seconds
+    }
+
+    setFrogtime(hour.toString() + " : " + minutes.toString() + " : " + seconds.toString());
+
+}, 1000);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -121,9 +147,7 @@ function App() {
 
         <div className="navBar">
         <div className="navItem">Frogger</div>
-        <div className="navItem">docs</div>
-        <div className="navItem">config</div>
-        <div className="navItem last">login</div>
+        <div className="navItem last">docs</div>
         </div>
         
     
@@ -132,7 +156,7 @@ function App() {
 
       
       <div className="mainDiv">
-     
+        <p className="frogTimeStyle">{frogTime}</p>
         <img style={frogstyle}className="frogglemain" alt="froggle" src={froggle} />
         <input
           className="input search"
@@ -145,7 +169,7 @@ function App() {
       </div>
 
 
-      <footer className="App-footer">
+      {/* <footer className="App-footer">
 
       <div className="menuLine"></div>
       <div className="footBar">
@@ -154,7 +178,7 @@ function App() {
         </div>
         
     
-      </footer>
+      </footer> */}
     </div>
   );
 }

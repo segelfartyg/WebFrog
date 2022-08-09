@@ -5,7 +5,7 @@
 }
 
 .App-header{
-  font-size: 1.5rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -16,6 +16,7 @@
 .navBar{
   display: flex;
   margin: 1.5rem;
+  position: absolute;
 
   
 }
@@ -46,7 +47,8 @@
 
 
 .mainDiv{
-  height: fit-content;
+  height: 100%;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -129,4 +131,11 @@
   margin: 1.5rem;
  
   
+}
+
+.frogTimeStyle{
+  margin: auto;
+  margin-top: 0px;
+  padding-top: 0px;
+  font-size: 6rem;
 }
