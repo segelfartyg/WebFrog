@@ -136,7 +136,7 @@ function App() {
       seconds = "0" + seconds
     }
 
-    setFrogtime(hour.toString() + " : " + minutes.toString() + " : " + seconds.toString());
+    setFrogtime(hour.toString() + " : " + minutes.toString());
 
 }, 1000);
 
