@@ -120,7 +120,7 @@ function App() {
         
 
         <div className="navBar">
-        <div className="navItem">WEBFROG</div>
+        <div className="navItem">Frogger</div>
         <div className="navItem">docs</div>
         <div className="navItem">config</div>
         <div className="navItem last">login</div>
