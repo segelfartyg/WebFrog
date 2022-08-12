@@ -192,9 +192,7 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
 }, 1000);
 
 
-//  <button onClick={onSearchClickHandler} className="button">
-//   JUMP!
-//  </button>
+
 
   return (
     <div className="App">
@@ -235,19 +233,7 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
   </div>
 
 
-  <div className="middleBox">
-  <img style={frogstyle}className="frogglemain" alt="froggle" src={froggle} /> 
-
- 
-
-  <input
-  className="input search"
-  ref={searchBarValue}
-  type="text"
- ></input>
-
-
- </div>
+  
   
   
  <div className="middleBox">
@@ -327,6 +313,31 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
         
     
       </footer> */}
+
+      <div className="footerBox">
+
+      <div className="footerArea">
+      
+      
+   
+      <img style={frogstyle}className="frogglemain" alt="froggle" src={froggle} /> 
+    
+     
+      <input
+      className="input search"
+      ref={searchBarValue}
+      type="text"
+     ></input>
+
+ <button onClick={onSearchClickHandler} className="button">
+   JUMP!
+ </button>
+
+ </div>
+    
+     </div>
+
+
     </div>
   );
 }
