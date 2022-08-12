@@ -316,7 +316,7 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
 
       <div className="footerBox">
 
-      <div className="footerArea">
+
       
       
    
@@ -333,7 +333,7 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
    JUMP!
  </button>
 
- </div>
+
     
      </div>
 

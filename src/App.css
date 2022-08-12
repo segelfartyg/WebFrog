@@ -54,6 +54,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
+  border-bottom: solid rgba(0, 128, 0, 0.363) 1px;
  
 }
 
@@ -79,6 +80,8 @@
 .footerBox{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
+  border-top: solid rgba(0, 128, 0, 0.363) 1px;
  
   
 }
