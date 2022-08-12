@@ -11,12 +11,15 @@ function App() {
   const [frogTime, setFrogtime] = useState("00:00")
   const [frogstyle, setFrogStyle] = useState({animation: "none 1s forwards",
   });
+  const [frogTempNow, setfrogTempNow] = useState("20");
+  const [frogTemp5, setfrogTemp5] = useState("21");
 
-
-  
+  const [news, setNews] = useState([{}])
 
 useEffect(() => {
-  // UPPSALA WEATHER
+  
+setInterval(() => {
+  
   axios.get('https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/17.630716/lat/59.832919/data.json')
   .then(function (response) {
     // handle success
@@ -33,6 +36,7 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
   if(date.getHours() + 5 == forecastDate.getHours()){
 
     console.log("TEMP OM FEM TIMMAR: " + response.data.timeSeries[i].parameters[0].values)
+    setfrogTemp5(response.data.timeSeries[i].parameters[0].values)
     break;
   }
 }
@@ -44,10 +48,108 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
     // handle success
 
     console.log("VÄDER NU: " + response.data.value[0].value);
+    setfrogTempNow(response.data.value[0].value);
   })
 
-  //
+
+
+
+
+
+
+
+}, 5000);
+
+
 }, [])
+
+  useEffect(() => {
+   
+   
+
+
+  axios.get('https://rss.aftonbladet.se/rss2/small/pages/sections/senastenytt/')
+  .then(function (response) {
+    // handle success
+
+    var parser = new DOMParser();
+    var text = response.data;
+    var xmlDoc = parser.parseFromString(text, "text/xml")
+
+    console.log(xmlDoc)
+
+    var txt = "";
+    var x = xmlDoc.getElementsByTagName("item");
+    console.log(x)
+
+    var newsItems = []
+  
+for (let i = 0; i < x.length; i++) {
+
+
+   
+  
+  var title = ""
+  var desc = ""
+
+  try{
+  txt += x[i].childNodes[1].textContent + "<br>";
+      title = x[i].childNodes[1].textContent
+      desc = x[i].childNodes[9].textContent
+      console.log(x[i].childNodes[9].textContent)
+
+  }
+  catch{
+
+
+  }
+
+  newsItems.push({"title": title, "desc": desc})
+
+}
+
+setNews(newsItems)
+  console.log(txt)
+
+
+    console.log(response.data);
+  })
+  }, [])
+  
+
+// useEffect(() => {
+//   // UPPSALA WEATHER
+//   axios.get('https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/17.630716/lat/59.832919/data.json')
+//   .then(function (response) {
+//     // handle success
+//     // console.log(response.data.timeSeries[0]);
+    
+
+//     var date = new Date();
+ 
+
+// for(let i = 0; i < response.data.timeSeries.length; i++){
+
+//   var forecastDate = new Date(response.data.timeSeries[i].validTime);
+
+//   if(date.getHours() + 5 == forecastDate.getHours()){
+
+//     console.log("TEMP OM FEM TIMMAR: " + response.data.timeSeries[i].parameters[0].values)
+//     break;
+//   }
+// }
+
+//   })
+
+//   axios.get('https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/1/station/97510/period/latest-hour/data.json')
+//   .then(function (response) {
+//     // handle success
+
+//     console.log("VÄDER NU: " + response.data.value[0].value);
+//   })
+
+//   //
+// }, [])
 
   // (async () => {
   //   const browser = await puppeteer.launch();
@@ -207,13 +309,13 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
     </div>
 
    <div className="box temp">
-    <h1 className="frogTimeStyle">NU: 10°</h1>
+    <h1 className="frogTimeStyle">NU: {frogTempNow}°</h1>
    
    </div>
  
 
    <div className="box temp">
-   <h1 className="frogTimeStyle">5H: 10°</h1>
+   <h1 className="frogTimeStyle">5H: {frogTemp5}°</h1>
    </div>
    
   </div>
@@ -240,51 +342,20 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
 
 <div className="newsArea">
 
-<div className="newsItem">
-<h4>Trippelsmocka väntar i höst – trots glädjande inflationssiffra</h4>
-<p className="ingress">Inflationstakten sjönk en aning i juli. Men experterna betraktar det som ett hack i kurvan – mat, el och boränta lär bli…</p>
-</div>
-
-<div className="newsItem">
-<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
-<p className="ingress">Blabablalblablallaa</p>
-</div>
-
-<div className="newsItem">
-<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
-<p className="ingress">Blabablalblablallaa</p>
-</div>
-
-<div className="newsItem">
-<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
-<p className="ingress">Blabablalblablallaa</p>
-</div>
-<div className="newsItem">
-<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
-<p className="ingress">Blabablalblablallaa</p>
-</div>
-<div className="newsItem">
-<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
-<p className="ingress">Blabablalblablallaa</p>
-</div>
-
-<div className="newsItem">
-<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
-<p className="ingress">Blabablalblablallaa</p>
-</div>
-
-<div className="newsItem">
-<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
-<p className="ingress">Blabablalblablallaa</p>
-</div>
 
 
-<div className="newsItem">
-<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
-<p className="ingress">Blabablalblablallaa</p>
-</div>
 
 
+{news.map((item) => {
+
+  return (<div className="newsItem">
+<h4>{item.title}</h4>
+<p className="ingress">{item.desc}</p>
+</div>)
+
+
+  console.log(item)
+})}
 
 
 </div>
