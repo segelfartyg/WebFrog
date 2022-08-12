@@ -2,12 +2,63 @@ import logo from "./logo.svg";
 import "./App.css";
 import froggle from "./froggle.svg";
 import React, { useRef, useEffect, useState } from "react";
+import axios from "axios";
+
+
 
 function App() {
   const searchBarValue = useRef();
   const [frogTime, setFrogtime] = useState("00:00")
   const [frogstyle, setFrogStyle] = useState({animation: "none 1s forwards",
   });
+
+
+  
+
+useEffect(() => {
+  // UPPSALA WEATHER
+  axios.get('https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/17.630716/lat/59.832919/data.json')
+  .then(function (response) {
+    // handle success
+    // console.log(response.data.timeSeries[0]);
+    
+
+    var date = new Date();
+ 
+
+for(let i = 0; i < response.data.timeSeries.length; i++){
+
+  var forecastDate = new Date(response.data.timeSeries[i].validTime);
+
+  if(date.getHours() + 5 == forecastDate.getHours()){
+
+    console.log("TEMP OM FEM TIMMAR: " + response.data.timeSeries[i].parameters[0].values)
+    break;
+  }
+}
+
+  })
+
+  axios.get('https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/1/station/97510/period/latest-hour/data.json')
+  .then(function (response) {
+    // handle success
+
+    console.log("VÄDER NU: " + response.data.value[0].value);
+  })
+
+  //
+}, [])
+
+  // (async () => {
+  //   const browser = await puppeteer.launch();
+  //   const page = await browser.newPage();
+  //   await page.goto('https://xn--vder24-bua.se/uppsala/');
+  //   await page.screenshot({path: 'example.png'});
+  
+  //   await browser.close();
+  // })();
+
+
   useEffect(() => {
     searchBarValue.current.focus();
 
@@ -142,32 +193,54 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        
-
-        <div className="navBar">
-        <div className="navItem">Frogger</div>
-        <div className="navItem last">docs</div>
-        </div>
-        
-    
-        <div className="menuLine"></div>
-      </header>
-
       
-      <div className="mainDiv">
-        <p className="frogTimeStyle">{frogTime}</p>
-        <img style={frogstyle}className="frogglemain" alt="froggle" src={froggle} />
-        <input
-          className="input search"
-          ref={searchBarValue}
-          type="text"
-        ></input>
-        <button onClick={onSearchClickHandler} className="button">
-          JUMP!
-        </button>
-      </div>
+      
+    <div className="mainDiv">
 
+    <div className="box">
+    
+    <p className="frogTimeStyle">{frogTime}</p> 
+    
+    </div>
+
+   <div className="box temp">
+    <p>TEMPERATUR NU: 10 GRADER</p>
+   </div>
+ 
+
+   <div className="box temp">
+   <p>TEMPERATUR 5H: 10 GRADER</p>
+   </div>
+   
+  </div>
+
+
+  <div className="middleColumn">
+  <div class="box">
+  <img style={frogstyle}className="frogglemain" alt="froggle" src={froggle} /> 
+  </div>
+ 
+  <div className="box">
+  <input
+  className="input search"
+  ref={searchBarValue}
+  type="text"
+ ></input>
+ <button onClick={onSearchClickHandler} className="button">
+  JUMP!
+ </button>
+
+  </div>
+ 
+  
+  
+  
+  </div>
+
+    
+   
+
+    
 
       {/* <footer className="App-footer">
 

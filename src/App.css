@@ -1,6 +1,6 @@
 .App{
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   height: 100%;
 }
 
@@ -48,18 +48,28 @@
 
 .mainDiv{
   height: 100%;
-  padding: 2rem;
+ 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+ 
+}
+
+.box{
   display: flex;
   flex-direction: column;
+}
+
+.temp{
   margin: auto;
- 
+  font-size: 3rem;
 }
 
 .frogglemain{
   margin: auto;
   width:30rem;
   padding: 1rem;
-  margin-bottom: 1.5rem;
+
   animation: none 0.5s forwards;
 }
 
@@ -135,7 +145,12 @@
 
 .frogTimeStyle{
   margin: auto;
-  margin-top: 0px;
-  padding-top: 0px;
-  font-size: 6rem;
+
+  font-size: 10rem;
+}
+
+.middleColumn{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
 }
