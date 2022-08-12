@@ -191,6 +191,11 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
 
 }, 1000);
 
+
+//  <button onClick={onSearchClickHandler} className="button">
+//   JUMP!
+//  </button>
+
   return (
     <div className="App">
       
@@ -199,18 +204,18 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
 
     <div className="box">
     
-    <p className="frogTimeStyle">{frogTime}</p> 
+    <h1 className="frogTimeStyle">{frogTime}</h1> 
     
     </div>
 
    <div className="box temp">
-    <p>NU: 10°</p>
+    <h1 className="frogTimeStyle">NU: 10°</h1>
    
    </div>
  
 
    <div className="box temp">
-   <p>5H: 10°</p>
+   <h1 className="frogTimeStyle">5H: 10°</h1>
    </div>
    
   </div>
@@ -218,6 +223,19 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
 
   <div className="middleColumn">
  
+  <div className="middleBox date">
+
+  <div className="dateDiv">
+  <p>FREDAG</p>
+  <p>12 Augusti</p>
+  <p>2022</p>
+  </div>
+ 
+
+  </div>
+
+
+  <div className="middleBox">
   <img style={frogstyle}className="frogglemain" alt="froggle" src={froggle} /> 
 
  
@@ -227,15 +245,72 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
   ref={searchBarValue}
   type="text"
  ></input>
- <button onClick={onSearchClickHandler} className="button">
-  JUMP!
- </button>
+
+
+ </div>
+  
+  
+ <div className="middleBox">
+
+<div className="newsArea">
+
+<div className="newsItem">
+<h4>Trippelsmocka väntar i höst – trots glädjande inflationssiffra</h4>
+<p className="ingress">Inflationstakten sjönk en aning i juli. Men experterna betraktar det som ett hack i kurvan – mat, el och boränta lär bli…</p>
+</div>
+
+<div className="newsItem">
+<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
+<p className="ingress">Blabablalblablallaa</p>
+</div>
+
+<div className="newsItem">
+<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
+<p className="ingress">Blabablalblablallaa</p>
+</div>
+
+<div className="newsItem">
+<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
+<p className="ingress">Blabablalblablallaa</p>
+</div>
+<div className="newsItem">
+<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
+<p className="ingress">Blabablalblablallaa</p>
+</div>
+<div className="newsItem">
+<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
+<p className="ingress">Blabablalblablallaa</p>
+</div>
+
+<div className="newsItem">
+<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
+<p className="ingress">Blabablalblablallaa</p>
+</div>
+
+<div className="newsItem">
+<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
+<p className="ingress">Blabablalblablallaa</p>
+</div>
+
+
+<div className="newsItem">
+<h4>TJUV FÅNGAD PÅ FILM, SE REAKTIONER:</h4>
+<p className="ingress">Blabablalblablallaa</p>
+</div>
+
+
+
+
+</div>
+
+
+
+ </div>
+
+  </div>
+
 
  
-  
-  
-  
-  </div>
 
     
    

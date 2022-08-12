@@ -1,6 +1,7 @@
 .App{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr;
   height: 100%;
 }
 
@@ -46,12 +47,13 @@
 }
 
 
+
 .mainDiv{
   height: 100%;
  
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
  
 }
 
@@ -67,7 +69,7 @@
 
 .frogglemain{
   margin: auto;
-  width:auto;
+  width:90%;
   padding: 1rem;
   height: auto;
   animation: none 0.5s forwards;
@@ -118,7 +120,7 @@
   height: 2.5rem;
   font-size: 1.5rem;
   border: solid rgba(0, 128, 0, 0.699) 1px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   border-radius: 5px;
   outline: none;
   font-family:Georgia, 'Times New Roman', Times, serif
@@ -149,7 +151,43 @@
   font-size: 5rem;
 }
 
-.middleColumn{
+.middleBox{
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+  position: relative;
 }
+
+.date p{
+  font-size: 3rem;
+  text-align: center;
+}
+
+.dateDiv{
+  margin: auto;
+}
+.middleColumn{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+h4{
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.newsItem p{
+  font-size: 1rem;
+}
+
+.newsArea{
+  border: solid green 1px;
+  max-height: 70vh;
+  overflow-y: scroll;
+  padding: 1rem;
+  
+}
+
