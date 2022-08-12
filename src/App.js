@@ -204,23 +204,24 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
     </div>
 
    <div className="box temp">
-    <p>TEMPERATUR NU: 10 GRADER</p>
+    <p>NU: 10°</p>
+   
    </div>
  
 
    <div className="box temp">
-   <p>TEMPERATUR 5H: 10 GRADER</p>
+   <p>5H: 10°</p>
    </div>
    
   </div>
 
 
   <div className="middleColumn">
-  <div class="box">
-  <img style={frogstyle}className="frogglemain" alt="froggle" src={froggle} /> 
-  </div>
  
-  <div className="box">
+  <img style={frogstyle}className="frogglemain" alt="froggle" src={froggle} /> 
+
+ 
+
   <input
   className="input search"
   ref={searchBarValue}
@@ -230,7 +231,6 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
   JUMP!
  </button>
 
-  </div>
  
   
   

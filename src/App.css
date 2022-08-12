@@ -62,14 +62,14 @@
 
 .temp{
   margin: auto;
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 .frogglemain{
   margin: auto;
-  width:30rem;
+  width:auto;
   padding: 1rem;
-
+  height: auto;
   animation: none 0.5s forwards;
 }
 
@@ -146,11 +146,10 @@
 .frogTimeStyle{
   margin: auto;
 
-  font-size: 10rem;
+  font-size: 5rem;
 }
 
 .middleColumn{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 3fr 1fr;
+  display: flex;
+  flex-direction: column;
 }
