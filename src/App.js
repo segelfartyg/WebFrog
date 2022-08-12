@@ -54,20 +54,6 @@ for(let i = 0; i < response.data.timeSeries.length; i++){
 
 
 
-
-
-
-
-}, 5000);
-
-
-}, [])
-
-  useEffect(() => {
-   
-   
-
-
   axios.get('https://rss.aftonbladet.se/rss2/small/pages/sections/senastenytt/')
   .then(function (response) {
     // handle success
@@ -114,7 +100,16 @@ setNews(newsItems)
 
     console.log(response.data);
   })
-  }, [])
+
+
+
+
+}, 5000);
+
+
+}, [])
+
+
   
 
 // useEffect(() => {
