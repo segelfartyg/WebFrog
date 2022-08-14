@@ -15,6 +15,7 @@ function App() {
   const [frogTemp5, setfrogTemp5] = useState("21");
 
   const [news, setNews] = useState([{}])
+  const  [dayData, setDayData] = useState(["1", "1", "2000"])
 
 useEffect(() => {
   
@@ -100,6 +101,16 @@ setNews(newsItems)
 
     console.log(response.data);
   })
+
+
+
+var dayData = new Date()
+
+var day = dayData.getDate()
+var month = dayData.getMonth()
+var year = dayData.getFullYear()
+
+setDayData([day, month, year])
 
 
 
@@ -321,9 +332,8 @@ setNews(newsItems)
   <div className="middleBox date">
 
   <div className="dateDiv">
-  <p>FREDAG</p>
-  <p>12 Augusti</p>
-  <p>2022</p>
+  <p>{dayData[0] + "/" + dayData[1] + " - " + dayData[2]}</p>
+
   </div>
  
 

@@ -54,7 +54,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  border-bottom: solid rgba(0, 128, 0, 0.363) 1px;
+  border-bottom: solid rgba(0, 128, 0, 0.363) 5px;
  
 }
 
@@ -81,7 +81,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
-  border-top: solid rgba(0, 128, 0, 0.363) 1px;
+  border-top: solid rgba(0, 128, 0, 0.363) 5px;
  
   
 }
@@ -179,7 +179,7 @@ h1{
 }
 
 .date p{
-  font-size: 3rem;
+  font-size: 5rem;
   text-align: center;
 }
 
