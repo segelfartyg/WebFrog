@@ -109,6 +109,7 @@ var dayData = new Date()
 var day = dayData.getDate()
 var month = dayData.getMonth()
 var year = dayData.getFullYear()
+month = month + 1
 
 setDayData([day, month, year])
 
